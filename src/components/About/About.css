@@ -1,0 +1,32 @@
+.about {
+  height: 70vh;
+}
+
+.about__title {
+  border-bottom: 1px solid black;
+  width: fit-content;
+  margin: 20px auto;
+  font-size: 60px;
+}
+
+.about__description {
+  font-size: 30px;
+  padding: 50px;
+  max-width: 60vw;
+  margin: auto;
+}
+
+.about__connect-btn {
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: rgb(240, 240, 240);
+  transition: all 0.3s ease;
+}
+
+.about__connect-btn:hover {
+  box-shadow: 0 0 10px black;
+  scale: 1.02;
+}

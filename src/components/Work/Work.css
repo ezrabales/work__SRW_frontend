@@ -1,0 +1,37 @@
+.work {
+}
+
+.work__title {
+  border-bottom: 1px solid black;
+  width: fit-content;
+  margin: 20px auto;
+  font-size: 60px;
+}
+
+.work__section {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  grid-template-areas: "vid divider desc";
+  gap: 30px;
+  padding: 10px;
+}
+
+.work__section:nth-child(even) {
+  grid-template-areas: "desc divider vid";
+}
+
+.work__section-vid {
+  grid-area: vid;
+}
+
+.work__section-divider {
+  grid-area: divider;
+  background-color: rgba(0, 0, 0, 0.527);
+  width: 1px;
+  height: 100%;
+}
+
+.work__section-description {
+  grid-area: desc;
+  background-color: rgb(230, 230, 230);
+}

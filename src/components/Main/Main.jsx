@@ -153,7 +153,7 @@ const Main = () => {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size + force * 2.5, 0, Math.PI * 2);
 
-        ctx.fillStyle = `rgba(255,255,255,${0.3 + force * 0.8})`;
+        ctx.fillStyle = `rgba(255,255,255,${0.4 + force * 0.8})`;
         ctx.shadowBlur = 10 * force;
         ctx.shadowColor = "white";
         ctx.fill();

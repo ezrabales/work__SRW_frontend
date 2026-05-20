@@ -1,11 +1,18 @@
 .about {
-  height: 70vh;
+  height: 80vh;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .about__title {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgb(255, 255, 255);
   width: fit-content;
-  margin: 20px auto;
+  margin: 0 auto 20px;
+  padding-top: 10px;
   font-size: 60px;
 }
 
@@ -14,19 +21,21 @@
   padding: 50px;
   max-width: 60vw;
   margin: auto;
+  text-align: center;
 }
 
 .about__connect-btn {
-  margin: 20px auto;
+  margin: 0 auto 80px;
   display: flex;
   justify-content: center;
   padding: 15px;
   border-radius: 10px;
   background-color: rgb(240, 240, 240);
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
+  color: black;
 }
 
 .about__connect-btn:hover {
-  box-shadow: 0 0 10px black;
+  box-shadow: 0 0 10px rgb(123, 202, 255);
   scale: 1.02;
 }

@@ -6,6 +6,7 @@ import Footer from "../Footer/Footer";
 import Main from "../Main/Main";
 import Work from "../Work/Work";
 import About from "../About/About";
+import Modal from "../Modal/Modal";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/about" element={<About />} />
       </Routes>
       <Footer />
+      <Modal />
     </GlobalProvider>
   );
 };

@@ -82,7 +82,7 @@
 }
 
 .modal__submit:hover {
-  box-shadow: 0 0 10px rgb(123, 202, 255);
+  box-shadow: 0 0 10px rgba(255, 240, 102, 0.603);
   scale: 1.02;
 }
 

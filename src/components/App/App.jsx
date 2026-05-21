@@ -1,5 +1,6 @@
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
+import { useEffect } from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
 import { GlobalProvider } from "../GlobalState/GlobalState";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
@@ -9,6 +10,10 @@ import About from "../About/About";
 import Modal from "../Modal/Modal";
 
 const App = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   return (
     <GlobalProvider>
       <Header />

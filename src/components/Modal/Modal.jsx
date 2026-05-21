@@ -57,6 +57,8 @@ const Modal = () => {
       phone: "",
       message: "",
     });
+
+    setIsOpen(false);
   }
 
   useModalClose(isOpen, () => {

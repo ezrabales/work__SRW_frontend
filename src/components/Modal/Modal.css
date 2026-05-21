@@ -65,7 +65,32 @@
 .modal__form-input {
   padding-left: 10px;
   padding: 5px;
-  border: 1px solid black;
+  border: 1px solid rgb(168, 168, 168);
+  background-color: rgb(231, 231, 231);
   border-radius: 10px;
   cursor: text;
+}
+
+.modal__submit {
+  text-align: center;
+  margin: auto;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: rgb(240, 240, 240);
+  transition: all 0.3s ease;
+  color: black;
+}
+
+.modal__submit:hover {
+  box-shadow: 0 0 10px rgb(123, 202, 255);
+  scale: 1.02;
+}
+
+.error {
+  border: 1px solid red;
+}
+
+.error-message {
+  color: red;
+  font-size: 15px;
 }

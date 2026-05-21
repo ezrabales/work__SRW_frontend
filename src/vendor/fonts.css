@@ -1,0 +1,27 @@
+@font-face {
+  font-family: "Quantico";
+  src: url("./Fonts/Quantico/Quantico-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Quantico";
+  src: url("./Fonts/Quantico/Quantico-Bold.ttf");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Quantico";
+  src: url("./Fonts/Quantico/Quantico-Italic.ttf");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Quantico";
+  src: url("./Fonts/Quantico/Quantico-BoldItalic.ttf");
+  font-weight: 700;
+  font-style: italic;
+}

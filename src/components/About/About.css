@@ -1,7 +1,7 @@
 .about {
   height: 80vh;
-  background-color: black;
-  color: white;
+  background-color: var(--primary);
+  color: var(--text-light);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -9,7 +9,7 @@
 }
 
 .about__title {
-  border-bottom: 1px solid rgb(255, 255, 255);
+  border-bottom: 1px solid var(--text-light);
   width: fit-content;
   margin: 0 auto 20px;
   padding-top: 10px;
@@ -30,12 +30,12 @@
   justify-content: center;
   padding: 15px;
   border-radius: 10px;
-  background-color: rgb(240, 240, 240);
+  background-color: var(--accent1);
   transition: all 0.3s ease;
   color: black;
 }
 
 .about__connect-btn:hover {
-  box-shadow: 0 0 10px rgba(255, 240, 102, 0.76);
+  box-shadow: 0 0 10px var(--accent2);
   scale: 1.02;
 }

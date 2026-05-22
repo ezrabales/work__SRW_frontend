@@ -6,13 +6,14 @@
   height: 100vh;
   z-index: 10;
   background-color: rgba(177, 177, 177, 0.397);
+  color: var(--text-light);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .modal__container {
-  background-color: white;
+  background-color: var(--primary);
   width: 50%;
   border-radius: 20px;
   position: relative;
@@ -65,8 +66,8 @@
 .modal__form-input {
   padding-left: 10px;
   padding: 5px;
-  border: 1px solid rgb(168, 168, 168);
-  background-color: rgb(231, 231, 231);
+  border: 1px solid var(--accent1);
+  background-color: var(--secondary);
   border-radius: 10px;
   cursor: text;
 }
@@ -76,13 +77,13 @@
   margin: auto;
   padding: 15px;
   border-radius: 10px;
-  background-color: rgb(240, 240, 240);
+  background-color: var(--accent1);
   transition: all 0.3s ease;
   color: black;
 }
 
 .modal__submit:hover {
-  box-shadow: 0 0 10px rgba(255, 240, 102, 0.603);
+  box-shadow: 0 0 10px var(--accent2);
   scale: 1.02;
 }
 

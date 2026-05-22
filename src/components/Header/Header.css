@@ -5,7 +5,7 @@
   z-index: 1;
   position: fixed;
   width: 100%;
-  color: white;
+  color: var(--text-light);
 }
 
 .header__spacer {
@@ -20,7 +20,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(1, 9, 124);
+  background-color: var(--secondary);
 }
 
 .header__center {

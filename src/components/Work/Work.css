@@ -38,11 +38,19 @@
   opacity: 0.7;
 }
 
-.work__section-divider {
+.work__grid-section-divider {
   grid-area: divider;
   background-color: var(--accent1);
   width: 1px;
   height: 100%;
+  display: grid;
+}
+
+.work__section-divider {
+  background-color: var(--accent1);
+  height: 1px;
+  display: block;
+  margin: 0 10px;
 }
 
 .work__section-description {
@@ -56,4 +64,156 @@
 .work__section-description .description-title {
   font-weight: 700;
   font-size: 40px;
+}
+
+.work__social-container {
+  height: 100px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.work__social-link {
+}
+
+.work__social-img {
+  max-height: 100%;
+}
+
+.work__workflow-container {
+  margin: 0 100px;
+}
+
+.work__workflow-step {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+  color: var(--text-light);
+}
+
+.work__workflow-list-items {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+}
+
+.work__workflow-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--accent1);
+  opacity: 0.7;
+  position: relative;
+}
+
+.work__workflow-circle::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 60px; /* adjust this to control gap between steps */
+  background-color: var(--accent1);
+  opacity: 0.4;
+}
+
+.work__workflow-step:last-child .work__workflow-circle::after {
+  display: none;
+}
+
+.work__workflow-number {
+  color: var(--text-light2);
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.work__workflow-step-title {
+  font-size: 23px;
+}
+
+.work__workflow-step-description {
+  font-size: 23px;
+  opacity: 0.7;
+}
+
+.work__prices-container {
+  margin: 0 90px;
+}
+
+.work__prices-title {
+  color: var(--text-light);
+  font-size: 23px;
+}
+
+.work__prices-subtitle {
+  color: var(--text-light);
+  margin-bottom: 10px;
+  opacity: 0.7;
+}
+
+.work__prices-cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-items: center;
+  padding-bottom: 50px;
+}
+
+.work__prices-card {
+  background-color: var(--gray);
+  border: 2px solid var(--text-light1);
+  color: var(--text-light);
+  border-radius: 20px;
+  padding: 20px;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+}
+
+.work__prices-card_featured {
+  border: 5px solid var(--accent1);
+}
+
+.work__prices-featured-title {
+  margin: 5px 20px 10px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  background-color: var(--accent1);
+  color: var(--text-light2);
+}
+
+.work__prices-card-divider {
+  margin: 10px 0;
+  height: 1px;
+  background-color: var(--text-light1);
+  display: block;
+}
+
+.work__prices-list-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.work__prices-list-item:last-of-type {
+  margin-bottom: 20px;
+}
+
+.work__prices-btn {
+  margin-top: auto;
+  text-align: center;
+  border: 1px solid var(--accent1);
+  padding: 10px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.work__prices-btn:hover {
+  box-shadow: 0 0 10px var(--accent1);
+  scale: 1.02;
 }

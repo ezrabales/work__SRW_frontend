@@ -30,12 +30,12 @@
   justify-content: center;
   padding: 15px;
   border-radius: 10px;
-  background-color: var(--accent1);
+  border: 1px solid var(--accent1);
   transition: all 0.3s ease;
-  color: black;
+  color: var(--text-light);
 }
 
 .about__connect-btn:hover {
-  box-shadow: 0 0 10px var(--accent2);
+  box-shadow: 0 0 10px var(--accent1);
   scale: 1.02;
 }

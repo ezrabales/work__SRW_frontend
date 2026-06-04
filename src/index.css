@@ -1,10 +1,13 @@
 :root {
   --text-dark: #000000;
   --text-light: #fff;
-  --primary: #2e2e2e;
+  --text-light1: #b3b3b3;
+  --text-light2: #99f2f5;
+  --primary: #1c1c1c;
   --secondary: #294669;
   --accent1: #478b8d;
   --accent2: #e4d329;
+  --gray: #3a3a3a;
 }
 
 *,
@@ -23,6 +26,10 @@ body {
   font: inherit;
   color: inherit;
   background: transparent;
+}
+
+#root {
+  padding-bottom: 150px;
 }
 
 a {

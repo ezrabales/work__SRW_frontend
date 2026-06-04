@@ -3,6 +3,7 @@ import { useForm } from "../../hooks/useForm";
 import useModalClose from "../../hooks/useModalClose";
 import { useGlobal } from "../GlobalState/GlobalState";
 import { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 const Modal = () => {
   const formRef = useRef(null);
@@ -16,7 +17,7 @@ const Modal = () => {
 
   const { isOpen, setIsOpen } = useGlobal();
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     setErrors({});
 
@@ -50,6 +51,21 @@ const Modal = () => {
     }
 
     console.log("Valid:", values);
+
+    const { message, name, email, phone } = values;
+
+    await emailjs.send(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      {
+        fromEmail: email,
+        from: "Solid Rock Websites",
+        name,
+        phone,
+        message,
+      },
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+    );
 
     setValues({
       name: "",

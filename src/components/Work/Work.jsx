@@ -29,6 +29,8 @@ const Work = () => {
               className="work__section-vid"
               autoPlay
               loop
+              muted
+              playsInline
             />
           </a>
 
@@ -64,6 +66,8 @@ const Work = () => {
               className="work__section-vid"
               autoPlay
               loop
+              playsInline
+              muted
             />
           </a>
           <span className="work__grid-section-divider" />
@@ -186,7 +190,7 @@ const Work = () => {
                 featured: true,
                 cta: "Get Started",
                 list: [
-                  "Everything in Starter",
+                  <p style={{ color: "#ffd900" }}>Everything in Starter</p>,
                   "Up to 8 custom pages",
                   "Mobile-responsive design",
                   "Sermon archive integration",
@@ -208,7 +212,9 @@ const Work = () => {
                 featured: false,
                 cta: "Request a quote",
                 list: [
-                  "Everything in Starter + Growth",
+                  <p style={{ color: "#ffd900" }}>
+                    Everything in Starter + Growth
+                  </p>,
                   "Membership portals",
                   "Advanced event systems",
                   "Custom functionality",
@@ -291,7 +297,7 @@ const Work = () => {
                 featured: true,
                 cta: "Get Started",
                 list: [
-                  "Everything in Basic care",
+                  <p style={{ color: "#ffd900" }}>Everything in Basic care</p>,
                   "Up to 2 hrs/mo updates",
                   "Content changes & page additions",
                   "Priority support",
@@ -309,7 +315,9 @@ const Work = () => {
                 featured: false,
                 cta: "Get Started",
                 list: [
-                  "Everything in Basic care + Growth care",
+                  <p style={{ color: "#ffd900" }}>
+                    Everything in Basic care + Growth care
+                  </p>,
                   "Up to 4 hrs/mo updates",
                   "Top priority service",
                 ],

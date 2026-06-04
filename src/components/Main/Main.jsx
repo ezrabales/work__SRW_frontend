@@ -19,23 +19,27 @@ const Main = () => {
 
     // ---------- PARTICLES ----------
     const particles = [];
-    const COUNT = 7000;
 
     const w = () => canvas.width;
     const h = () => canvas.height;
 
     const centerX = canvas.width / 2;
-    const centerY = canvas.height / 2 + 50;
+    const centerY = canvas.height / 2 - 10;
 
-    // actual cross dimensions
-    const verticalHeight = 850;
-    const verticalWidth = 150;
+    const scale = Math.max(
+      0.5,
+      Math.min(canvas.width / 1920, canvas.height / 1080, 1),
+    );
 
-    const horizontalLength = 285;
-    const horizontalWidth = 150;
+    const COUNT = Math.floor(7000 * scale);
 
-    // Christian cross offset (crossbeam above center)
-    const beamY = centerY - 150;
+    const verticalHeight = 850 * scale;
+    const verticalWidth = 150 * scale;
+
+    const horizontalLength = 285 * scale;
+    const horizontalWidth = 150 * scale;
+
+    const beamY = centerY - 150 * scale;
 
     const verticalCount = COUNT * 0.6;
     const horizontalCount = COUNT * 0.4;
@@ -107,7 +111,40 @@ const Main = () => {
       mouse.current.y = e.clientY;
     };
 
+    const handleTouchMove = (e) => {
+      const touch = e.touches[0];
+
+      if (!touch) return;
+
+      mouse.current.x = touch.clientX;
+      mouse.current.y = touch.clientY;
+    };
+
+    const handleTouchStart = (e) => {
+      const touch = e.touches[0];
+
+      if (!touch) return;
+
+      mouse.current.x = touch.clientX;
+      mouse.current.y = touch.clientY;
+    };
+
+    const handleTouchEnd = () => {
+      mouse.current.x = -9999;
+      mouse.current.y = -9999;
+    };
+
     window.addEventListener("mousemove", handleMove);
+
+    window.addEventListener("touchstart", handleTouchStart, {
+      passive: true,
+    });
+
+    window.addEventListener("touchmove", handleTouchMove, {
+      passive: true,
+    });
+
+    window.addEventListener("touchend", handleTouchEnd);
 
     // ---------- ANIMATION ----------
 

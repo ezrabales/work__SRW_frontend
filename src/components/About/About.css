@@ -1,5 +1,5 @@
 .about {
-  height: 80vh;
+  min-height: calc(100vh - 175px);
   background-color: var(--primary);
   color: var(--text-light);
   display: flex;
@@ -17,7 +17,7 @@
 }
 
 .about__description {
-  font-size: 30px;
+  font-size: clamp(23px, 5vw, 30px);
   padding: 50px;
   max-width: 60vw;
   margin: auto;
@@ -38,4 +38,11 @@
 .about__connect-btn:hover {
   box-shadow: 0 0 10px var(--accent1);
   scale: 1.02;
+}
+
+@media (max-width: 768px) {
+  .about__description {
+    max-width: none;
+    padding: 30px 15px;
+  }
 }

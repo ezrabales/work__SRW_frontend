@@ -32,6 +32,8 @@
 .work__section-vid {
   grid-area: vid;
   transition: all 0.3s ease;
+  position: sticky;
+  top: 100px;
 }
 
 .work__section-vid:hover {
@@ -216,4 +218,27 @@
 .work__prices-btn:hover {
   box-shadow: 0 0 10px var(--accent1);
   scale: 1.02;
+}
+
+@media (max-width: 1044px) {
+  .work__section {
+    display: flex;
+    flex-direction: column;
+  }
+  .work__workflow-container {
+    margin: 0 15px;
+  }
+  .work__workflow-step {
+    align-items: start;
+  }
+  .work__workflow-circle::after {
+    display: none;
+  }
+  .work__prices-cards-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .work__prices-container {
+    margin: 0 20px;
+  }
 }

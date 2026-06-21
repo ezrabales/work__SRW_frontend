@@ -1,12 +1,32 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./Main.css";
+import HeroSection from "../Sections/HeroSection/HeroSection";
+import ColumnCardsSection from "../Sections/ColumnCardsSection/ColumnCardsSection";
+import StepsSection from "../Sections/StepsSection/StepsSection";
+import PricingSection from "../Sections/PricingSection/PricingSection";
+import PortfolioSection from "../Sections/PortfolioSection/PortfolioSection";
+import AboutSection from "../Sections/AboutSection/AboutSection";
+import CallToActionSection from "../Sections/CallToActionSection/CallToActionSection";
 
 const Main = () => {
-  const canvasRef = useRef(null);
+  const [activeSection, setActiveSection] = useState("hero");
+  const canvasCrossRef = useRef(null);
   const mouse = useRef({ x: -1000, y: -1000 });
 
+  const navLinks = [
+    { id: "hero", text: "Home" },
+    { id: "column", text: "The Solution" },
+    { id: "steps", text: "The Process" },
+    { id: "pricing", text: "Pricing" },
+    { id: "portfolio", text: "Portfolio" },
+    { id: "about", text: "About Me" },
+    { id: "action", text: "Ready For Action?" },
+  ];
+
+  // canvas effect
   useEffect(() => {
-    const canvas = canvasRef.current;
+    const canvas = canvasCrossRef.current;
+    if (!canvas) return;
     const ctx = canvas.getContext("2d");
 
     const resize = () => {
@@ -190,7 +210,7 @@ const Main = () => {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size + force * 2.5, 0, Math.PI * 2);
 
-        ctx.fillStyle = `rgba(255,255,255,${0.4 + force * 0.8})`;
+        ctx.fillStyle = `rgba(17,17,17,${0.4 + force * 0.8})`;
         ctx.shadowBlur = 10 * force;
         ctx.shadowColor = "white";
         ctx.fill();
@@ -207,13 +227,63 @@ const Main = () => {
     };
   }, []);
 
+  // navbar class handler
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = document.querySelectorAll(".section");
+      const viewportMiddle = window.innerHeight / 2;
+
+      let closestSection = null;
+      let closestDistance = Infinity;
+
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        const sectionMiddle = rect.top + rect.height / 2;
+
+        const distance = Math.abs(sectionMiddle - viewportMiddle);
+
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestSection = section;
+        }
+      });
+
+      if (closestSection) {
+        setActiveSection(closestSection.id);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <div className="main">
-      <canvas ref={canvasRef} className="main__canvas" />
-
-      <h2 className="main__mission-statement">
-        Built on the Rock. Serving the Church. Reaching people.
-      </h2>
+      <div className="main__navbar-container">
+        <div className="main__navbar">
+          {navLinks.map((navLink, i) => (
+            <a
+              href={`#${navLink.id}`}
+              className={`main__navbar-link ${activeSection == navLink.id ? "main__navbar-link_active" : ""}`}
+            >
+              {navLink.text}
+            </a>
+          ))}
+        </div>
+      </div>
+      <div className="main__content-container">
+        <HeroSection />
+        <ColumnCardsSection />
+        <StepsSection />
+        <PricingSection />
+        <PortfolioSection />
+        <AboutSection />
+        <CallToActionSection />
+      </div>
     </div>
   );
 };

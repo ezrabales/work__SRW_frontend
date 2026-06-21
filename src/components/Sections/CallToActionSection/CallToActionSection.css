@@ -1,0 +1,19 @@
+.call {
+  background-color: var(--white);
+  padding-top: 150px;
+}
+
+.call__description {
+  font-size: clamp(23px, 5vw, 30px);
+  padding: 50px;
+  max-width: 60vw;
+  margin: auto;
+  text-align: center;
+}
+
+.call__cta-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 60px;
+}

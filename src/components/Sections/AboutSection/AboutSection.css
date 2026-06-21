@@ -1,19 +1,9 @@
 .about {
-  min-height: calc(100vh - 175px);
-  background-color: var(--primary);
-  color: var(--text-light);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+  background-color: var(--white);
+  color: var(--dark);
 }
 
 .about__title {
-  border-bottom: 1px solid var(--text-light);
-  width: fit-content;
-  margin: 0 auto 20px;
-  padding-top: 10px;
-  font-size: 60px;
 }
 
 .about__description {
@@ -32,12 +22,19 @@
   border-radius: 10px;
   border: 1px solid var(--accent1);
   transition: all 0.3s ease;
-  color: var(--text-light);
+  color: var(--dark);
 }
 
 .about__connect-btn:hover {
   box-shadow: 0 0 10px var(--accent1);
   scale: 1.02;
+}
+
+.about__cta-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 60px;
 }
 
 @media (max-width: 768px) {

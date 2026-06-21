@@ -1,9 +1,33 @@
 .main {
+  display: flex;
+}
+
+.main__navbar-container {
+  width: 20vw;
+  max-width: 250px;
   position: relative;
+  background-color: var(--white);
+}
+
+.main__navbar {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20vw;
+  max-width: 250px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main__navbar-link_active {
+  color: var(--blue);
+}
+
+.main__content-container {
   width: 100%;
-  height: calc(100vh - 175px);
-  background: var(--primary);
-  overflow: hidden;
 }
 
 .main__canvas {
@@ -13,18 +37,6 @@
   display: block;
   z-index: 0;
   touch-action: none;
-}
-
-.main__mission-statement {
-  position: fixed;
-  top: 35%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: var(--text-light);
-  font-size: clamp(18px, 6vw, 29px);
-  font-weight: 700;
-  z-index: 2;
-  text-align: center;
 }
 
 @media (max-width: 768px) {

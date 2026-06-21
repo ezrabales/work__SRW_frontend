@@ -1,4 +1,8 @@
 :root {
+  --white: #f5f1eb;
+  --black: #1e1e1e;
+  --blue: rgb(157, 219, 255);
+  --gold: #b38b59;
   --text-dark: #000000;
   --text-light: #fff;
   --text-light1: #b3b3b3;
@@ -26,6 +30,11 @@ body {
   font: inherit;
   color: inherit;
   background: transparent;
+  scroll-behavior: smooth;
+}
+
+h2 {
+  font-size: 3vw;
 }
 
 #root {

@@ -3,6 +3,11 @@
   padding-top: 150px;
 }
 
+.call__title {
+  width: fit-content;
+  border-bottom: 2px solid var(--gold);
+}
+
 .call__description {
   font-size: clamp(23px, 5vw, 30px);
   padding: 50px;
@@ -15,5 +20,5 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: 60px;
+  padding-bottom: 150px;
 }

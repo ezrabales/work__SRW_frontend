@@ -71,7 +71,7 @@ const DeckDisplay = ({ title, cards }) => {
               <p className="deck__card-description">{card.description}</p>
               <div className="deck__card-btn-container">
                 {card?.btns?.map((btn, j) => (
-                  <CTA className={btn.className} follow={btn.follow}>
+                  <CTA key={j} className={btn.className} follow={btn.follow}>
                     {btn.content}
                   </CTA>
                 ))}

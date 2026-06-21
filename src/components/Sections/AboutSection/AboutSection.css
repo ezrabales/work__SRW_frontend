@@ -4,6 +4,8 @@
 }
 
 .about__title {
+  width: fit-content;
+  border-bottom: 2px solid var(--gold);
 }
 
 .about__description {

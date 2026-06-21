@@ -5,7 +5,6 @@ import { GlobalProvider } from "../GlobalState/GlobalState";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import Main from "../Main/Main";
-import Work from "../Work/Work";
 import Modal from "../Modal/Modal";
 
 const App = () => {
@@ -18,7 +17,6 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/work" element={<Work />} />
       </Routes>
       <Footer />
       <Modal />

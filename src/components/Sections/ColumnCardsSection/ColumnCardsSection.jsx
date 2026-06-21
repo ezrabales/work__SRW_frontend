@@ -30,7 +30,7 @@ const ColumnCardsSection = () => {
         "No Search Engine Optimization",
         "Hard to find service times, directions, and contact info",
       ],
-      solutionTitle: "Welcome new visitors",
+      solutionTitle: "Welcome New Visitors",
       solutionDescriptions: [
         "People can easily find your church and plan a visit.",
       ],

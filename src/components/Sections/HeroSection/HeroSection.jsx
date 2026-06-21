@@ -15,7 +15,9 @@ const HeroSection = ({ ref }) => {
         </p>
         <div className="hero__left-btn-container">
           <CTA>Schedule a call</CTA>
-          <CTA className="hero__left-btn-alt">view portfolio</CTA>
+          <a href="#portfolio">
+            <CTA className="hero__left-btn-alt">view portfolio</CTA>
+          </a>
         </div>
       </div>
       <div className="hero__right">

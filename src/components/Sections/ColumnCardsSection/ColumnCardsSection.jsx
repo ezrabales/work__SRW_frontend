@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import "./ColumnCardsSection.css";
 import CTA from "../../CTA/CTA";
+import { useGlobal } from "../../GlobalState/GlobalState";
 
 const ColumnCardsSection = () => {
+  const { setIsOpen } = useGlobal();
   const columnContainerRef = useRef(null);
   const [flipped, setFlipped] = useState(false);
 
@@ -10,7 +12,7 @@ const ColumnCardsSection = () => {
     const handleScroll = () => {
       const rect = columnContainerRef.current.getBoundingClientRect();
 
-      if (rect.top < window.innerHeight * 0.1) {
+      if (rect.top < window.innerHeight * 0.09) {
         setFlipped(true);
         window.removeEventListener("scroll", handleScroll);
       }
@@ -110,7 +112,7 @@ const ColumnCardsSection = () => {
         <div
           className={`column__cta-container ${flipped ? "column__cta-container_visible" : ""}`}
         >
-          <CTA>Schedule a call</CTA>
+          <CTA handleClick={() => setIsOpen(true)}>Schedule a call</CTA>
         </div>
       </div>
     </section>

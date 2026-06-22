@@ -1,0 +1,109 @@
+.form {
+}
+
+.form__form {
+}
+
+.form__label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.form__input {
+  display: flex;
+  padding: 5px;
+  background-color: var(--white);
+  color: var(--black);
+  border: 1px solid rgb(180, 180, 180);
+  border-radius: 5px;
+  cursor: text;
+  margin-top: 2px;
+}
+
+.form__input-error {
+  border-color: red;
+}
+
+.form__error-message,
+.form__final-error-message {
+  color: red;
+  height: 18px;
+  font-weight: 300;
+}
+
+.form__final-error-message {
+  width: 100%;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.form__btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form__btn {
+  color: var(--black);
+}
+
+.form__radio {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.form__radio p {
+  margin: 0 0 2px;
+}
+
+.form__radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  padding: 5px;
+  background-color: var(--white);
+  border: 1px solid rgb(180, 180, 180);
+  border-radius: 5px;
+}
+
+.form__radio-group.form__input-error {
+  border-color: red;
+}
+
+.form__radio label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.form__radio input[type="radio"] {
+  cursor: pointer;
+  accent-color: var(--blue);
+}
+
+.form__radio-option {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0);
+
+  padding: 3px 5px;
+  border-radius: 5px;
+  cursor: pointer;
+
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.form__radio-option:hover {
+  background-color: rgb(205, 205, 205);
+}
+
+.form__radio-option--checked {
+  background-color: rgb(63, 152, 230, 0.15);
+  border: 1px solid rgb(63, 152, 230);
+}

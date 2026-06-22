@@ -2,8 +2,10 @@ import { useEffect, useRef } from "react";
 import "./HeroSection.css";
 import CTA from "../../CTA/CTA";
 import { RFLVideo } from "../../../assets";
+import { useGlobal } from "../../GlobalState/GlobalState";
 
 const HeroSection = ({ ref }) => {
+  const { setIsOpen } = useGlobal();
   return (
     <section className="hero section" id="hero" ref={ref}>
       <div className="hero__left">
@@ -14,7 +16,7 @@ const HeroSection = ({ ref }) => {
           <br /> and take their next step in the faith.
         </p>
         <div className="hero__left-btn-container">
-          <CTA>Schedule a call</CTA>
+          <CTA handleClick={() => setIsOpen(true)}>Schedule a call</CTA>
           <a href="#portfolio">
             <CTA className="hero__left-btn-alt">view portfolio</CTA>
           </a>

@@ -1,10 +1,16 @@
 import CTA from "../../CTA/CTA";
+import { useGlobal } from "../../GlobalState/GlobalState";
 import "./StepsSection.css";
 
 const StepsSection = () => {
+  const { setIsOpen } = useGlobal();
   const steps = [
     {
-      title: <CTA className={"steps__cta"}>Schedule a Call</CTA>,
+      title: (
+        <CTA handleClick={() => setIsOpen(true)} className={"steps__cta"}>
+          Schedule a Call
+        </CTA>
+      ),
       description:
         "Tell us about your church, goals, and the challenges you're facing with your current website.",
     },

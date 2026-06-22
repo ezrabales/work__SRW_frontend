@@ -1,6 +1,6 @@
 .main {
   display: grid;
-  grid-template-columns: 0.2fr 0.8fr;
+  grid-template-columns: 290px 1fr;
 }
 
 .main__navbar-container {
@@ -78,9 +78,12 @@
   touch-action: none;
 }
 
-@media (max-width: 768px) {
-  .main__mission-statement {
-    top: 37%;
-    width: 100%;
+@media (max-width: 900px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
+
+  .main__navbar-container {
+    display: none;
   }
 }

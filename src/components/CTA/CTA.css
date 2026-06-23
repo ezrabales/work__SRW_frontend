@@ -1,0 +1,23 @@
+.cta {
+  padding: 0.7em 2.12em;
+  background-color: var(--blue);
+  border-radius: 12px;
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.1s ease;
+  text-align: center;
+  font-size: 1.19em;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: capitalize;
+}
+
+.cta:hover {
+  background-color: white;
+  box-shadow: 0 0 5px var(--black);
+}
+
+.cta:active {
+  scale: 0.95;
+}

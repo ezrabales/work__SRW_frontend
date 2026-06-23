@@ -1,0 +1,39 @@
+.call {
+  background-color: var(--white);
+  padding-top: 150px;
+}
+
+.call__title {
+  width: fit-content;
+  border-bottom: 2px solid var(--gold);
+}
+
+.call__description {
+  font-size: clamp(23px, 5vw, 30px);
+  padding: 50px;
+  max-width: 80vw;
+  margin: auto;
+  text-align: center;
+}
+
+.call__cta-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 150px;
+}
+
+@media (max-width: 768px) {
+  .call {
+    padding: 30px;
+  }
+  .call__title {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .call__description {
+    max-width: none;
+  }
+}

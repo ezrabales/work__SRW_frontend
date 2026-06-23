@@ -1,25 +1,17 @@
 .about {
-  min-height: calc(100vh - 175px);
-  background-color: var(--primary);
-  color: var(--text-light);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+  background-color: var(--white);
+  color: var(--dark);
 }
 
 .about__title {
-  border-bottom: 1px solid var(--text-light);
   width: fit-content;
-  margin: 0 auto 20px;
-  padding-top: 10px;
-  font-size: 60px;
+  border-bottom: 2px solid var(--gold);
 }
 
 .about__description {
   font-size: clamp(23px, 5vw, 30px);
   padding: 50px;
-  max-width: 60vw;
+  max-width: 80vw;
   margin: auto;
   text-align: center;
 }
@@ -32,7 +24,7 @@
   border-radius: 10px;
   border: 1px solid var(--accent1);
   transition: all 0.3s ease;
-  color: var(--text-light);
+  color: var(--dark);
 }
 
 .about__connect-btn:hover {
@@ -40,7 +32,20 @@
   scale: 1.02;
 }
 
+.about__cta-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 60px;
+}
+
 @media (max-width: 768px) {
+  .about {
+    padding: 0 30px 30px;
+  }
+  .about__title {
+    font-size: 1.4rem;
+  }
   .about__description {
     max-width: none;
     padding: 30px 15px;

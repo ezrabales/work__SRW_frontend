@@ -29,23 +29,9 @@ const Header = () => {
 
   return (
     <>
-      <div className={`header ${hidden ? "header--hidden" : ""}`}>
-        <div className="header__left">
-          <NavLink to="/work">Work</NavLink>
-        </div>
-
-        <div className="header__center">
-          <NavLink to="/" className="header__logo">
-            <span className="header__logo-short">SRW</span>
-            <span className="header__logo-full">Solid Rock Websites</span>
-          </NavLink>
-        </div>
-
-        <div className="header__right">
-          <NavLink to="/about">About</NavLink>
-        </div>
+      <div className={`header ${hidden ? "header_hidden" : ""}`}>
+        <p className="header__text">Solid Rock Websites</p>
       </div>
-
       <span className="header__spacer" />
     </>
   );

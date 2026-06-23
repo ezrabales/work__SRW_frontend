@@ -4,171 +4,91 @@ import useModalClose from "../../hooks/useModalClose";
 import { useGlobal } from "../GlobalState/GlobalState";
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
+import Form from "../Form/Form";
+
+emailjs.init({
+  publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+});
 
 const Modal = () => {
-  const formRef = useRef(null);
-  const [errors, setErrors] = useState({});
-  const { values, handleChange, setValues } = useForm({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-
   const { isOpen, setIsOpen } = useGlobal();
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-    setErrors({});
+  useModalClose(isOpen, () => setIsOpen(false));
 
-    const form = formRef.current;
-    const newErrors = {};
-
-    // ✅ native validation
-    Array.from(form.elements).forEach((input) => {
-      if (input.name && !input.validity.valid) {
-        newErrors[input.name] = input.validationMessage;
-      }
-    });
-
-    const finalErrors = { ...newErrors };
-
-    // ✅ apply classes
-    Array.from(form.elements).forEach((input) => {
-      if (!input.name) return;
-
-      if (newErrors[input.name]) {
-        input.classList.add("error");
-      } else {
-        input.classList.remove("error");
-      }
-    });
-
-    // ✅ stop if errors
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-      return;
-    }
-
-    console.log("Valid:", values);
-
-    const { message, name, email, phone } = values;
-
-    await emailjs.send(
-      import.meta.env.VITE_EMAILJS_SERVICE_ID,
-      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-      {
-        fromEmail: email,
-        from: "Solid Rock Websites",
-        name,
-        phone,
-        message,
-      },
-      import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-    );
-
-    setValues({
-      name: "",
-      email: "",
-      phone: "",
-      message: "",
-    });
-
-    setIsOpen(false);
+  async function contactEzra(e) {
+    return emailjs
+      .send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          from: "Solid Rock Websites",
+          fromEmail: e.email,
+          name: e.name,
+          phone: e.phone,
+          message: e.project,
+        },
+      )
+      .then(() => {
+        setIsOpen(false);
+        return { success: true };
+      })
+      .catch((err) => ({
+        success: false,
+        message: err.text || err.message,
+      }));
   }
 
-  useModalClose(isOpen, () => {
-    setIsOpen(false);
-  });
-
-  if (!isOpen) return null;
-
+  if (!isOpen) return;
   return (
     <div className="modal">
       <div className="modal__container">
-        <h2 className="modal__title">Contact me!</h2>
+        <h2 className="modal__title">Contact me</h2>
         <div
           className="modal__close-btn"
           onClick={() => {
             setIsOpen(false);
           }}
         />
-        <form className="modal__form" ref={formRef}>
-          <label className="modal__form-label">
-            Name *
-            <input
-              required
-              id="name"
-              name="name"
-              type="text"
-              className="modal__form-input"
-              placeholder="Name"
-              value={values.name}
-              onChange={handleChange}
-            />
-            {errors.name ? (
-              <span className="error-message">{errors.name}</span>
-            ) : (
-              <span className="error-message" />
-            )}
-          </label>
-          <label className="modal__form-label">
-            Email *
-            <input
-              required
-              id="email"
-              name="email"
-              type="email"
-              className="modal__form-input"
-              placeholder="Email"
-              value={values.email}
-              onChange={handleChange}
-            />
-            {errors.email ? (
-              <span className="error-message">{errors.email}</span>
-            ) : (
-              <span className="error-message" />
-            )}
-          </label>
-          <label className="modal__form-label">
-            Phone
-            <input
-              id="phone"
-              name="phone"
-              type="tel"
-              className="modal__form-input"
-              placeholder="Phone"
-              value={values.phone}
-              onChange={handleChange}
-            />
-            {errors.phone ? (
-              <span className="error-message">{errors.phone}</span>
-            ) : (
-              <span className="error-message" />
-            )}
-          </label>
-          <label className="modal__form-label">
-            Message *
-            <textarea
-              required
-              id="message"
-              name="message"
-              type="text"
-              className="modal__form-input"
-              placeholder="Message"
-              value={values.message}
-              onChange={handleChange}
-            />
-            {errors.message ? (
-              <span className="error-message">{errors.message}</span>
-            ) : (
-              <span className="error-message" />
-            )}
-          </label>
-          <button className="modal__submit" onClick={handleSubmit}>
-            Submit
-          </button>
-        </form>
+        <div className="modal__form-container">
+          <Form
+            onSuccessfulSubmit={contactEzra}
+            inputs={[
+              {
+                name: "name",
+                type: "text",
+                placeholder: "Name *",
+                labelText: "Name *",
+                required: true,
+              },
+              {
+                name: "church",
+                type: "text",
+                placeholder: "Church",
+                labelText: "Church",
+              },
+              {
+                name: "email",
+                type: "email",
+                placeholder: "Email *",
+                labelText: "Email *",
+                required: true,
+              },
+              {
+                name: "phone",
+                type: "number",
+                placeholder: "Phone",
+                labelText: "Phone",
+              },
+              {
+                name: "project",
+                type: "textarea",
+                placeholder: "Tell me about your project",
+                labelText: "Project * ",
+                required: true,
+              },
+            ]}
+          />
+        </div>
       </div>
     </div>
   );

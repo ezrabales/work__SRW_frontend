@@ -54,3 +54,15 @@
   font-weight: 700;
   line-height: 1;
 }
+
+@media (max-width: 768px) {
+  .steps__title {
+    font-size: 1.4rem;
+  }
+  .steps__container {
+    padding: 30px;
+  }
+  .steps__number {
+    font-size: 1.3rem;
+  }
+}

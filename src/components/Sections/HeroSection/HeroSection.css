@@ -33,6 +33,7 @@
 }
 
 .cta.hero__left-btn-alt {
+  width: 100%;
   background-color: white;
 }
 
@@ -55,4 +56,37 @@
 
 .hero__vid {
   border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+  }
+  .hero__left {
+    border: 0;
+    margin: 0;
+    padding: 30px;
+  }
+  .hero__left-headline {
+    text-align: center;
+  }
+  .hero__left-subheadline {
+    font-size: 1.5rem;
+  }
+  .hero__left-btn-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .hero__right-vid-container {
+    margin: auto;
+    padding-top: 10px;
+  }
+  .hero__right {
+    padding: 30px;
+  }
+  .hero__right-title {
+    font-size: 2rem;
+  }
 }

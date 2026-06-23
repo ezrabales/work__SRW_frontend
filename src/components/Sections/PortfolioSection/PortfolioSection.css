@@ -1,0 +1,9 @@
+.portfolio {
+  background-color: var(--white);
+}
+
+@media (max-width: 768px) {
+  .portfolio {
+    padding: 0 30px;
+  }
+}

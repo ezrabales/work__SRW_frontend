@@ -11,7 +11,7 @@
 .about__description {
   font-size: clamp(23px, 5vw, 30px);
   padding: 50px;
-  max-width: 60vw;
+  max-width: 80vw;
   margin: auto;
   text-align: center;
 }
@@ -40,6 +40,12 @@
 }
 
 @media (max-width: 768px) {
+  .about {
+    padding: 0 30px 30px;
+  }
+  .about__title {
+    font-size: 1.4rem;
+  }
   .about__description {
     max-width: none;
     padding: 30px 15px;

@@ -11,6 +11,14 @@ import CallToActionSection from "../Sections/CallToActionSection/CallToActionSec
 const Main = () => {
   const [activeSection, setActiveSection] = useState("hero");
 
+  const isMobile = window.innerWidth <= 900;
+  const [navbarIsOpen, setNavbarIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    console.log(scrolled);
+  }, [scrolled]);
+
   const navLinks = [
     { id: "hero", text: "Home" },
     { id: "column", text: "The Solution" },
@@ -55,21 +63,65 @@ const Main = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(true);
+      window.removeEventListener("scroll", handleScroll);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="main">
-      <div className="main__navbar-container">
-        <div className="main__navbar">
-          {navLinks.map((navLink, i) => (
-            <a
-              key={i}
-              href={`#${navLink.id}`}
-              className={`main__navbar-link ${activeSection == navLink.id ? "main__navbar-link_active" : ""}`}
+      {isMobile ? (
+        scrolled && (
+          <div className="main__navbar-container">
+            <p
+              className="main__navbar-title"
+              onClick={() => setNavbarIsOpen((prev) => !prev)}
             >
-              {navLink.text}
-            </a>
-          ))}
+              Menu
+            </p>
+            <div
+              className={`main__navbar ${
+                navbarIsOpen ? "main__navbar_open" : ""
+              }`}
+            >
+              {navLinks.map((navLink, i) => (
+                <a
+                  key={i}
+                  href={`#${navLink.id}`}
+                  onClick={() => setNavbarIsOpen((prev) => !prev)}
+                  className={`main__navbar-link ${
+                    activeSection === navLink.id
+                      ? "main__navbar-link_active"
+                      : ""
+                  }`}
+                >
+                  {navLink.text}
+                </a>
+              ))}
+            </div>
+          </div>
+        )
+      ) : (
+        <div className="main__navbar-container">
+          <div className="main__navbar">
+            {navLinks.map((navLink, i) => (
+              <a
+                key={i}
+                href={`#${navLink.id}`}
+                className={`main__navbar-link ${activeSection == navLink.id ? "main__navbar-link_active" : ""}`}
+              >
+                {navLink.text}
+              </a>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
       <div className="main__content-container">
         <HeroSection />
         <ColumnCardsSection />

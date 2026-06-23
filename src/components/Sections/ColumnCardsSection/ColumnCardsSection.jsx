@@ -8,7 +8,40 @@ const ColumnCardsSection = () => {
   const columnContainerRef = useRef(null);
   const [flipped, setFlipped] = useState(false);
 
+  const isMobile = window.innerWidth <= 768;
+  const [flippedCards, setFlippedCards] = useState([]);
+  const cardRefs = useRef([]);
+
   useEffect(() => {
+    if (!isMobile) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const index = Number(entry.target.dataset.index);
+
+          if (entry.isIntersecting) {
+            setFlipped(true);
+            setFlippedCards((prev) =>
+              prev.includes(index) ? prev : [...prev, index],
+            );
+          }
+        });
+      },
+      {
+        threshold: 1,
+        rootMargin: "-20% 0px -20% 0px",
+      },
+    );
+
+    cardRefs.current.forEach((card) => {
+      if (card) observer.observe(card);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) return;
     const handleScroll = () => {
       const rect = columnContainerRef.current.getBoundingClientRect();
 
@@ -79,36 +112,71 @@ const ColumnCardsSection = () => {
           </div>
         </div>
 
-        <div className="column__card-container">
-          {cards.map((card, i) => (
-            <div
-              key={i}
-              className={`column__card ${
-                flipped ? `column__card--flipped-${i}` : ""
-              }`}
-            >
-              <div className="column__card-inner">
-                <div className="column__card-front">
-                  <h3 className="column__card-title">{card.title}</h3>
-                  {card.descriptions?.map((desc, j) => (
-                    <p key={j} className="column__card-description">
-                      {desc}
-                    </p>
-                  ))}
-                </div>
+        {window.innerWidth <= 768 ? (
+          <div className="column__card-container">
+            {cards.map((card, i) => (
+              <div
+                key={i}
+                ref={(el) => (cardRefs.current[i] = el)}
+                data-index={i}
+                className={`column__card ${
+                  flippedCards.includes(i) ? "column__card--flipped" : ""
+                }`}
+              >
+                <div className="column__card-inner">
+                  <div className="column__card-front">
+                    <h3 className="column__card-title">{card.title}</h3>
+                    {card.descriptions?.map((desc, j) => (
+                      <p key={j} className="column__card-description">
+                        {desc}
+                      </p>
+                    ))}
+                  </div>
 
-                <div className="column__card-back">
-                  <h3 className="column__card-title">{card.solutionTitle}</h3>
-                  {card.solutionDescriptions?.map((desc, j) => (
-                    <p key={j} className="column__card-description-solution">
-                      {desc}
-                    </p>
-                  ))}
+                  <div className="column__card-back">
+                    <h3 className="column__card-title">{card.solutionTitle}</h3>
+                    {card.solutionDescriptions?.map((desc, j) => (
+                      <p key={j} className="column__card-description-solution">
+                        {desc}
+                      </p>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <div className="column__card-container">
+            {cards.map((card, i) => (
+              <div
+                key={i}
+                className={`column__card ${
+                  flipped ? `column__card--flipped-${i}` : ""
+                }`}
+              >
+                <div className="column__card-inner">
+                  <div className="column__card-front">
+                    <h3 className="column__card-title">{card.title}</h3>
+                    {card.descriptions?.map((desc, j) => (
+                      <p key={j} className="column__card-description">
+                        {desc}
+                      </p>
+                    ))}
+                  </div>
+
+                  <div className="column__card-back">
+                    <h3 className="column__card-title">{card.solutionTitle}</h3>
+                    {card.solutionDescriptions?.map((desc, j) => (
+                      <p key={j} className="column__card-description-solution">
+                        {desc}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
         <div
           className={`column__cta-container ${flipped ? "column__cta-container_visible" : ""}`}
         >

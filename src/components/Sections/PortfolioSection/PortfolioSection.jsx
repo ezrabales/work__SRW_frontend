@@ -1,11 +1,12 @@
+import { displayChurchVideo, kingsVideo, RFLVideo } from "../../../assets";
 import DeckDisplay from "../../DisplayComponents/DeckDisplay/DeckDisplay";
 import "./PortfolioSection.css";
 
 const PortfolioSection = () => {
   return (
-    <section className="section" id="portfolio">
+    <section className="portfolio section" id="portfolio">
       <DeckDisplay
-        title={"Check Out My Work"}
+        title={"Check Out Our Work"}
         cards={[
           {
             title: <>King's Property Management</>,
@@ -21,9 +22,16 @@ const PortfolioSection = () => {
                 content: "Go to site",
                 follow: 0.3,
                 className: "deck__card-btn",
+                onClick: () => {
+                  window.open(
+                    "https://kingspropertymanagementmt.com/",
+                    "_blank",
+                    "noopener,noreferrer",
+                  );
+                },
               },
             ],
-            img: "",
+            video: kingsVideo,
           },
           {
             title: <>Resources for Leaders</>,
@@ -40,9 +48,41 @@ const PortfolioSection = () => {
                 content: "Go to site",
                 follow: 0.3,
                 className: "deck__card-btn",
+                onClick: () => {
+                  window.open(
+                    "https://work-rfl-frontend.vercel.app/",
+                    "_blank",
+                    "noopener,noreferrer",
+                  );
+                },
               },
             ],
-            img: "",
+            video: RFLVideo,
+          },
+          {
+            title: <>Display Church</>,
+            description: (
+              <>
+                Created a mock Church website, called Display Church. The focus
+                was a polished and smooth user experience, both on a computer or
+                phone.
+              </>
+            ),
+            btns: [
+              {
+                content: "Go to site",
+                follow: 0.3,
+                className: "deck__card-btn",
+                onClick: () => {
+                  window.open(
+                    "https://work-mock-church-frontend.vercel.app/",
+                    "_blank",
+                    "noopener,noreferrer",
+                  );
+                },
+              },
+            ],
+            video: displayChurchVideo,
           },
         ]}
       />

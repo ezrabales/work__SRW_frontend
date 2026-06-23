@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import "./HeroSection.css";
 import CTA from "../../CTA/CTA";
-import { RFLVideo } from "../../../assets";
+import { displayChurchVideo } from "../../../assets";
 import { useGlobal } from "../../GlobalState/GlobalState";
 
 const HeroSection = ({ ref }) => {
@@ -27,12 +27,12 @@ const HeroSection = ({ ref }) => {
           <h2 className="hero__right-title">Our Latest Project...</h2>
           <div className="hero__right-vid-container">
             <a
-              href="https://work-rfl-frontend.vercel.app/"
+              href="https://work-mock-church-frontend.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
             >
               <video
-                src={RFLVideo}
+                src={displayChurchVideo}
                 className="hero__vid"
                 autoPlay
                 loop

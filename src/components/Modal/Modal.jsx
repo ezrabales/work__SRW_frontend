@@ -6,10 +6,37 @@ import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import Form from "../Form/Form";
 
+emailjs.init({
+  publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+});
+
 const Modal = () => {
   const { isOpen, setIsOpen } = useGlobal();
 
   useModalClose(isOpen, () => setIsOpen(false));
+
+  async function contactEzra(e) {
+    return emailjs
+      .send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          from: "Solid Rock Websites",
+          fromEmail: e.email,
+          name: e.name,
+          phone: e.phone,
+          message: e.project,
+        },
+      )
+      .then(() => {
+        setIsOpen(false);
+        return { success: true };
+      })
+      .catch((err) => ({
+        success: false,
+        message: err.text || err.message,
+      }));
+  }
 
   if (!isOpen) return;
   return (
@@ -24,6 +51,7 @@ const Modal = () => {
         />
         <div className="modal__form-container">
           <Form
+            onSuccessfulSubmit={contactEzra}
             inputs={[
               {
                 name: "name",

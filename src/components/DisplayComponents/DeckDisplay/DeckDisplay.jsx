@@ -23,7 +23,7 @@ const DeckDisplay = ({ title, cards }) => {
         const rect = card.getBoundingClientRect();
 
         const start = window.innerHeight * 0.8; // begins scaling
-        const end = 32; // top sticky position (2rem)
+        const end = 32; // top sticky position
 
         const progress = Math.min(
           Math.max((start - rect.top) / (start - end), 0),
@@ -57,7 +57,7 @@ const DeckDisplay = ({ title, cards }) => {
             key={i}
             style={{
               marginBottom: `-${(window.innerWidth <= 768 ? 2 : 10) + 1.8 * i * (window.innerWidth <= 768 ? 0.5 : 1)}vh`,
-              top: `${(window.innerWidth <= 768 ? 2 : 10) + 1.8 * i * (window.innerWidth <= 768 ? 0.5 : 1)}vh`,
+              top: `${(window.innerWidth <= 768 ? 2 : 5) + 1.8 * i * (window.innerWidth <= 768 ? 0.5 : 1)}vh`,
             }}
             className={`deck__card ${cardsStack ? "" : "deck__card_no-stack"}`}
           >
@@ -65,23 +65,54 @@ const DeckDisplay = ({ title, cards }) => {
               <h3 className="deck__card-title">{card.title}</h3>
               {window.innerWidth <= 768 && (
                 <div className="deck__card-pic-container">
-                  <img className={card.imgClassName} src={card.img} />
+                  {card?.img ? (
+                    <img className={card.imgClassName} src={card.img} />
+                  ) : card?.video ? (
+                    <video
+                      src={card.video}
+                      className={card.imgClassName}
+                      autoPlay
+                      loop
+                      playsInline
+                      muted
+                    />
+                  ) : (
+                    ""
+                  )}
                 </div>
               )}
               <p className="deck__card-description">{card.description}</p>
-              <div className="deck__card-btn-container">
-                {card?.btns?.map((btn, j) => (
-                  <CTA key={j} className={btn.className} follow={btn.follow}>
-                    {btn.content}
-                  </CTA>
-                ))}
-              </div>
             </div>
             {window.innerWidth > 768 && (
               <div className="deck__card-pic-container">
-                <img className={card.imgClassName} src={card.img} />
+                {card?.img ? (
+                  <img className={card.imgClassName} src={card.img} />
+                ) : card?.video ? (
+                  <video
+                    src={card.video}
+                    className={card.imgClassName}
+                    autoPlay
+                    loop
+                    playsInline
+                    muted
+                  />
+                ) : (
+                  ""
+                )}
               </div>
             )}
+            <div className="deck__card-btn-container">
+              {card?.btns?.map((btn, j) => (
+                <CTA
+                  key={j}
+                  className={btn.className}
+                  follow={btn.follow}
+                  handleClick={btn.onClick}
+                >
+                  {btn.content}
+                </CTA>
+              ))}
+            </div>
           </div>
         ))}
       </div>

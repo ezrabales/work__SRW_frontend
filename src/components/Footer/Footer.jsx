@@ -7,7 +7,9 @@ const Footer = () => {
 
   return (
     <div className="footer">
-      <div className="footer__bottom">Solid Rock Websites</div>
+      <div className="footer__bottom">
+        © 2026 Solid Rock Websites. <br /> All Rights Reserved.
+      </div>
       <div className="footer__contact-container">
         <button
           className="footer__contact"

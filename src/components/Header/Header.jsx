@@ -30,7 +30,9 @@ const Header = () => {
   return (
     <>
       <div className={`header ${hidden ? "header_hidden" : ""}`}>
-        <p className="header__text">Solid Rock Websites</p>
+        <NavLink to={"/"} className="header__text">
+          Solid Rock Websites
+        </NavLink>
       </div>
       <span className="header__spacer" />
     </>

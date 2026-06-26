@@ -1,6 +1,7 @@
 .main {
   display: grid;
   grid-template-columns: 290px 1fr;
+  background-color: var(--white);
 }
 
 .main__navbar-container {
@@ -67,6 +68,7 @@
 }
 
 .main__content-container {
+  max-width: calc(100vw - 310px);
 }
 
 .main__canvas {
@@ -113,6 +115,7 @@
     max-height: 500px;
   }
   .main__navbar-container {
+    cursor: pointer;
     z-index: 10;
     position: fixed;
     top: 50px;
@@ -134,5 +137,8 @@
   }
   .main__navbar-link {
     font-size: 1.1rem;
+  }
+  .main__content-container {
+    max-width: none;
   }
 }

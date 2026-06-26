@@ -15,10 +15,6 @@ const Main = () => {
   const [navbarIsOpen, setNavbarIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  useEffect(() => {
-    console.log(scrolled);
-  }, [scrolled]);
-
   const navLinks = [
     { id: "hero", text: "Home" },
     { id: "column", text: "The Solution" },

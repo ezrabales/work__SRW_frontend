@@ -6,6 +6,7 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import Main from "../Main/Main";
 import Modal from "../Modal/Modal";
+import NotFound from "../NotFound/NotFound";
 
 const App = () => {
   const { pathname } = useLocation();
@@ -17,6 +18,7 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Main />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
       <Modal />

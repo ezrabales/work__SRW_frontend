@@ -22,7 +22,7 @@
   position: sticky;
 
   width: 65em;
-  max-width: 90vw;
+  max-width: calc(100vw - 400px);
   min-height: 35em;
   margin: 0 auto 2rem;
   padding: 3.11em;
@@ -125,6 +125,12 @@
   }
   .deck__card {
     min-height: 50vh;
+  }
+}
+
+@media (max-width: 900px) {
+  .deck__card {
+    max-width: 90vw;
   }
 }
 

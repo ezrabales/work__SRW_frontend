@@ -1,0 +1,35 @@
+.not {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  padding: 20px;
+  text-align: center;
+}
+
+.not__btn {
+  background-color: var(--black);
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  color: var(--white);
+  transition: all 0.3s ease;
+  border: 1px solid var(--black);
+}
+
+.not__btn:hover {
+  border: 1px solid var(--black);
+  background-color: white;
+  color: var(--black);
+}
+
+.not__btn:active {
+  scale: 0.95;
+}
+
+@media (max-width: 768px) {
+  .not__subtitle {
+    font-size: 1.5rem;
+  }
+}

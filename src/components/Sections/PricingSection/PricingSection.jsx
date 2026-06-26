@@ -35,7 +35,6 @@ const PricingSection = () => {
           Everything in Starter
         </span>,
         "Up to 8 custom pages",
-        "Mobile-responsive design",
         "Sermon archive integration",
         "Events calendar integration",
         "Volunteer & giving links",

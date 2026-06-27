@@ -14,10 +14,11 @@ const PricingSection = () => {
       list: [
         "Home page",
         "About page",
-        "Service times",
+        "Service times and location",
         "Contact form",
         "Mobile-responsive design",
         "Basic SEO",
+        "SSL configuration",
       ],
     },
     {

@@ -82,6 +82,7 @@ const PricingSection = () => {
         "Security updates",
         "Monthly backups",
         "30 min/mo content edits",
+        "Up to 150GB of data for sermon archives (usually about 1-2 years of videos)",
       ],
     },
     {
@@ -102,6 +103,7 @@ const PricingSection = () => {
         "Up to 2 hrs/mo updates",
         "Content changes & page additions",
         "Priority support",
+        "Up to 500GB of data for sermon archives",
       ],
     },
     {
@@ -121,6 +123,7 @@ const PricingSection = () => {
         </span>,
         "Up to 4 hrs/mo updates",
         "Top priority service",
+        "Up to 1TB of data for sermon archives",
       ],
     },
   ];
